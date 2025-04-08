@@ -96,15 +96,39 @@
   height: 400px;
 }
 
+.detailReport_table th:first-child, .detailReport_table td:first-child{
+  text-align: center;
+  width: 120px;
+}
+
+.detailReport_table th + th{
+  text-align: left;
+  width: 420px;
+}
+
 .detailReport_table table {
   padding: 5px 0px;
   width: 100%;
 }
 
 .detailReport_table td {
-  text-align: center;
   padding: 10px 0px;
 }
+
+.detailReport_table tr {
+  padding: 10px 0px;
+}
+
+.customer_avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.customer_name {
+  display: flex;
+  align-items: center;
+}
+
 
 .detailReport_footer {
   display: flex;

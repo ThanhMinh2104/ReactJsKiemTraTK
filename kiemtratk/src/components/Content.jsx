@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import img1 from "../imgs/data1.png"
+import { data } from "react-router-dom"
 
 export default function Content() {
     const [overviews, setOverView] = useState([])
@@ -49,47 +51,81 @@ export default function Content() {
                     <table>
                         <thead>
                             <tr>
-                                <th>NameColoum</th>
-                                <th>NameColoum</th>
-                                <th>NameColoum</th>
-                                <th>NameColoum</th>
-                                <th>NameColoum</th>
-                                <th>NameColoum</th>
-                                <th>NameColoum</th>
+                                <th><input type="checkbox" name="" id="" /></th>
+                                <th>CUSTOMER NAME</th>
+                                <th>COMPANY</th>
+                                <th>ORDER VALUE</th>
+                                <th>ORDER DATE</th>
+                                <th>STATUS</th>
+                                <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>Dữ liệu 1.1</td>
-                            <td>Dữ liệu 1.2</td>
-                            <td>Dữ liệu 1.3</td>
-                            <td>Dữ liệu 1.1</td>
-                            <td>Dữ liệu 1.2</td>
-                            <td>Dữ liệu 1.3</td>
-                            <td>Dữ liệu 1.2</td>
+                            <tr>
+                                <td><input type="checkbox" name="" id="" /></td>
+                                <td className="customer_name">
+                                    <img src={img1} className="customer_avatar" alt="" />
+                                    Elizabeth Lee
+                                </td>
+                                <td>Avatar System</td>
+                                <td>$359</td>
+                                <td>10/07/2023</td>
+                                <td>New</td>
+                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
+                            </tr>
 
-                        </tr>
-                        <tr>
-                            <td>Dữ liệu 2.1</td>
-                            <td>Dữ liệu 2.2</td>
-                            <td>Dữ liệu 2.3</td>
-                            <td>Dữ liệu 1.1</td>
-                            <td>Dữ liệu 1.2</td>
-                            <td>Dữ liệu 1.3</td>
-                            <td>Dữ liệu 1.2</td>
-             
-                        </tr>
-                        <tr>
-                            <td>Dữ liệu 3.1</td>
-                            <td>Dữ liệu 3.2</td>
-                            <td>Dữ liệu 3.3</td>
-                            <td>Dữ liệu 1.1</td>
-                            <td>Dữ liệu 1.2</td>
-                            <td>Dữ liệu 1.3</td>
-                            <td>Dữ liệu 1.2</td>
-              
-                        </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" id="" /></td>
+                                <td className="customer_name">
+                                    <img src={img1} className="customer_avatar" alt="" />
+                                    Elizabeth Lee
+                                </td>
+                                <td>Avatar System</td>
+                                <td>$359</td>
+                                <td>10/07/2023</td>
+                                <td>New</td>
+                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><input type="checkbox" name="" id="" /></td>
+                                <td className="customer_name">
+                                    <img src={img1} className="customer_avatar" alt="" />
+                                    Elizabeth Lee
+                                </td>
+                                <td>Avatar System</td>
+                                <td>$359</td>
+                                <td>10/07/2023</td>
+                                <td>New</td>
+                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" name="" id="" /></td>
+                                <td className="customer_name">
+                                    <img src={img1} className="customer_avatar" alt="" />
+                                    Elizabeth Lee
+                                </td>
+                                <td>Avatar System</td>
+                                <td>$359</td>
+                                <td>10/07/2023</td>
+                                <td>New</td>
+                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" name="" id="" /></td>
+                                <td className="customer_name">
+                                    <img src={img1} className="customer_avatar" alt="" />
+                                    Elizabeth Lee
+                                </td>
+                                <td>Avatar System</td>
+                                <td>$359</td>
+                                <td>10/07/2023</td>
+                                <td>New</td>
+                                <td className="customer_edit"><i style={{display: "block"}} className="fa-solid fa-pen"></i></td>
+                            </tr>
                         </tbody>
 
                     </table>
