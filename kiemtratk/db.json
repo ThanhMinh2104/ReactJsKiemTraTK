@@ -1,82 +1,81 @@
 {
-    "overview": [
-        {
-            "id": 1,
-            "title": "Turnover",
-            "value": 92405,
-            "icon": "<i class='fas fa-shopping-cart'></i>",    
-            "changePercent": "5.39%"
-        },
-        {
-            "id": 2,
-            "title": "Profit",
-            "value": 32218,
-            "icon": "<i class='fa-solid fa-dollar-sign'></i>",    
-            "changePercent": "5.39%"
-        },
-        {
-            "id": 3,
-            "title": "New Customers",
-            "value": 298,
-            "icon": "<i class='fa-solid fa-user'></i>",    
-            "changePercent": "6.84%"
-        }
-    ],
-
-    "table": [
-        {
-            "id": 1,
-            "name": "Elizabeth Lee",
-            "company": "AvatarSystems",
-            "orderValue": "$559",
-            "orderDate": "10/07/2023",
-            "status": "New",
-            "img": "/imgs/Avatar.png"
-        },
-        {
-            "id": 2,
-            "name": "Carlos Garcia",
-            "company": "SmoozeShift",
-            "orderValue": "$747",
-            "orderDate": "24/07/2023",
-            "status": "New",
-            "img": "/imgs/Avatar (1).png"
-        },
-        {
-            "id": 3,
-            "name": "Elizabeth Bailey",
-            "company": "Prime Time Telecome",
-            "orderValue": "$564",
-            "orderDate": "08/08/2023",
-            "status": "In-progress",
-            "img": "/imgs/Avatar (2).png"
-        },
-        {
-            "id": 4,
-            "name": "Ryan Brown",
-            "company": "OmniTech Corporation",
-            "orderValue": "$541",
-            "orderDate": "31/08/2023",
-            "status": "In-progress",
-            "img": "/imgs/Avatar (3).png"
-        },
-        {
-            "id": 5,
-            "name": "Ryan Young",
-            "company": "DataStream Inc.",
-            "orderValue": "$769",
-            "orderDate": "01/05/2023",
-            "status": "Completed",
-            "img": "/imgs/Avatar (4).png"
-        },
-        {
-            "id": 6,
-            "name": "Hailey Adam",
-            "company": "FlowRush",
-            "orderValue": "$922",
-            "orderDate": "10/06/2023",
-            "status": "Completed",
-            "img": "/imgs/Avatar (5).png"
-        }
-    ]
+  "overview": [
+    {
+      "id": "1",
+      "title": "Turnover",
+      "value": 92405,
+      "icon": "<i class='fas fa-shopping-cart'></i>",
+      "changePercent": "5.39%"
+    },
+    {
+      "id": "2",
+      "title": "Profit",
+      "value": 32218,
+      "icon": "<i class='fa-solid fa-dollar-sign'></i>",
+      "changePercent": "5.39%"
+    },
+    {
+      "id": "3",
+      "title": "New Customers",
+      "value": 298,
+      "icon": "<i class='fa-solid fa-user'></i>",
+      "changePercent": "6.84%"
+    }
+  ],
+  "table": [
+    {
+      "id": "1",
+      "name": "Elizabeth Lee",
+      "company": "AvatarSystems",
+      "orderValue": "$559",
+      "orderDate": "10/07/2023",
+      "status": "New",
+      "img": "/imgs/Avatar.png"
+    },
+    {
+      "id": "2",
+      "name": "Carlos Garcia",
+      "company": "SmoozeShift",
+      "orderValue": "$747",
+      "orderDate": "24/07/2023",
+      "status": "New",
+      "img": "/imgs/Avatar (1).png"
+    },
+    {
+      "id": "3",
+      "name": "Elizabeth Bailey",
+      "company": "Prime Time Telecome",
+      "orderValue": "$564",
+      "orderDate": "08/08/2023",
+      "status": "In-progress",
+      "img": "/imgs/Avatar (2).png"
+    },
+    {
+      "id": "4",
+      "name": "Ryan Brown",
+      "company": "OmniTech Corporation",
+      "orderValue": "$541",
+      "orderDate": "31/08/2023",
+      "status": "In-progress",
+      "img": "/imgs/Avatar (3).png"
+    },
+    {
+      "id": "5",
+      "name": "Ryan Young",
+      "company": "DataStream Inc.",
+      "orderValue": "$769",
+      "orderDate": "01/05/2023",
+      "status": "Completed",
+      "img": "/imgs/Avatar (4).png"
+    },
+    {
+      "id": "6",
+      "name": "Hailey Adam",
+      "company": "FlowRush",
+      "orderValue": "$922",
+      "orderDate": "10/06/2023",
+      "status": "Completed",
+      "img": "/imgs/Avatar (5).png"
+    }
+  ]
 }

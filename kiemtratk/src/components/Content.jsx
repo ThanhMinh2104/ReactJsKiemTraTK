@@ -32,12 +32,23 @@ export default function Content() {
     };
 
     const handleSave = () => {
-        setData(prev =>
-            prev.map(item =>
-                item.id === editData.id ? editData : item
-            )
-        );
-        setShowModal(false);
+        fetch(`http://localhost:3000/table/${editData.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editData)
+        })
+        .then(res => res.json())
+        .then(updatedItem => {
+            setData(prev =>
+                prev.map(item =>
+                    item.id === updatedItem.id ? updatedItem : item
+                )
+            );
+            setShowModal(false);
+        })
+        .catch(err => console.error("Failed to update:", err));
     };
 
     return (
