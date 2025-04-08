@@ -5,6 +5,7 @@ export default function Content() {
     const [datas, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [editData, setEditData] = useState(null);
+    const [isAddMode, setIsAddMode] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:3000/overview")
@@ -20,35 +21,64 @@ export default function Content() {
 
     const handleEditClick = (data) => {
         setEditData(data);
+        setIsAddMode(false);
         setShowModal(true);
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEditData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        const { name, value, type, files } = e.target;
+        if (type === "file" && files.length > 0) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setEditData(prev => ({
+                    ...prev,
+                    img: reader.result
+                }));
+            };
+            reader.readAsDataURL(files[0]);
+        } else {
+            setEditData(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
     };
 
     const handleSave = () => {
-        fetch(`http://localhost:3000/table/${editData.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(editData)
-        })
-        .then(res => res.json())
-        .then(updatedItem => {
-            setData(prev =>
-                prev.map(item =>
-                    item.id === updatedItem.id ? updatedItem : item
-                )
-            );
-            setShowModal(false);
-        })
-        .catch(err => console.error("Failed to update:", err));
+        if (isAddMode) {
+            fetch("http://localhost:3000/table", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(editData)
+            })
+            .then(res => res.json())
+            .then(newItem => {
+                setData(prev => [...prev, newItem]);
+                setShowModal(false);
+                setIsAddMode(false);
+            })
+            .catch(err => console.error("Failed to add:", err));
+        } else {
+            fetch(`http://localhost:3000/table/${editData.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(editData)
+            })
+            .then(res => res.json())
+            .then(updatedItem => {
+                setData(prev =>
+                    prev.map(item =>
+                        item.id === updatedItem.id ? updatedItem : item
+                    )
+                );
+                setShowModal(false);
+            })
+            .catch(err => console.error("Failed to update:", err));
+        }
     };
 
     return (
@@ -78,13 +108,26 @@ export default function Content() {
                 <div className="detailReport_header">
                     <span>Detail Report</span>
                     <div className="detailReport_io">
-                        <button>Import</button>
+                        <button onClick={() => {
+                            setEditData({
+                                name: "",
+                                company: "",
+                                orderValue: "",
+                                orderDate: "",
+                                status: "",
+                                img: ""
+                            });
+                            setIsAddMode(true);
+                            setShowModal(true);
+                        }}>
+                            Import
+                        </button>
                         <button>Export</button>
                     </div>
                 </div>
 
                 <div className="detailReport_table">
-                    <table>
+                    <table style={{ wordBreak: 'break-word', whiteSpace: 'normal' }}>
                         <thead>
                             <tr>
                                 <th className="customer_check"><input type="checkbox" /></th>
@@ -96,13 +139,12 @@ export default function Content() {
                                 <th></th>
                             </tr>
                         </thead>
-
                         <tbody>
                             {datas.map((data) => (
                                 <tr key={data.id}>
                                     <td className="customer_check"><input type="checkbox" /></td>
                                     <td className="customer_name">
-                                        <img src={data.img} className="customer_avatar" alt="" />
+                                        {data.img && <img src={data.img} className="customer_avatar" alt="" />}
                                         {data.name}
                                     </td>
                                     <td>{data.company}</td>
@@ -119,7 +161,7 @@ export default function Content() {
                 </div>
 
                 <div className="detailReport_footer">
-                    <div className="detailReport_result">63 results</div>
+                    <div className="detailReport_result">{datas.length} results</div>
                     <ul className="detailReport_changPage">
                         {[1, 2, 3, 4, 5].map((num) => <li key={num}>{num}</li>)}
                     </ul>
@@ -130,27 +172,45 @@ export default function Content() {
             {showModal && editData && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h2>Edit Customer</h2>
+                        <h2>{isAddMode ? "Add New Customer" : "Edit Customer"}</h2>
+
                         <label>
                             Name:
                             <input name="name" value={editData.name} onChange={handleChange} />
                         </label>
+
                         <label>
                             Company:
                             <input name="company" value={editData.company} onChange={handleChange} />
                         </label>
+
                         <label>
                             Order Value:
                             <input name="orderValue" value={editData.orderValue} onChange={handleChange} />
                         </label>
+
                         <label>
                             Order Date:
-                            <input name="orderDate" value={editData.orderDate} onChange={handleChange} />
+                            <input type="date" name="orderDate" value={editData.orderDate} onChange={handleChange} />
                         </label>
+
                         <label>
                             Status:
-                            <input name="status" value={editData.status} onChange={handleChange} />
+                            <br />
+                            <select name="status" value={editData.status} onChange={handleChange} className="form-control">
+                                <option value="">Select status</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
                         </label>
+
+                        <label>
+                        <br />
+                            Avatar:
+                            <input type="file" accept="image/*" onChange={handleChange} />
+                        </label>
+
                         <div className="modal-buttons">
                             <button onClick={handleSave}>Save</button>
                             <button onClick={() => setShowModal(false)}>Cancel</button>
