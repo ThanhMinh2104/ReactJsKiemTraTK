@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import square from "/imgs/Squares four 1.png"
+import importIcon from "/imgs/Download.png"
+import exportIcon from "/imgs/Move up.png"
 
 export default function Content() {
     const [overviews, setOverView] = useState([]);
@@ -85,17 +88,24 @@ export default function Content() {
         <div className="content">
             {/* Overview */}
             <div className="overview">
-                <h1>Overview</h1>
+                <div className="overview_title">
+                    <img src={square} alt="" />
+                    <span>Overview</span>
+                </div>
                 <ul>
-                    {overviews.map((overview) => (
-                        <li key={overview.id} className="overview-item">
+                    {overviews.map((overview, index) => (
+                        <li key={overview.id} className={"overview-item" + " overview"+(index + 1)}>
                             <div className="overview-item_data">
                                 <h4 className="overview_item-title">{overview.title}</h4>
                                 <h1 className="overview_item-cost">${overview.value}</h1>
-                                <p className="overview_item-perchange">{overview.changePercent} period of change</p>
+                                <div className="overview_item-perchange-container">
+                                    <span className="overview_item-perchange">{overview.changePercent}</span>
+                                    period of change
+                                </div>
+                                
                             </div>
                             <div
-                                className="overview-item_icon"
+                                className={"overview-item_icon overview" + index}
                                 dangerouslySetInnerHTML={{ __html: overview.icon }}
                             ></div>
                         </li>
@@ -106,7 +116,11 @@ export default function Content() {
             {/* Detail Report */}
             <div className="detailReport">
                 <div className="detailReport_header">
-                    <span>Detail Report</span>
+                    <div className="overview_title">
+                        <img src={square} alt="" />
+                        <span>Detail Report</span>
+                    </div>
+
                     <div className="detailReport_io">
                         <button onClick={() => {
                             setEditData({
@@ -120,9 +134,10 @@ export default function Content() {
                             setIsAddMode(true);
                             setShowModal(true);
                         }}>
+                            <img src={importIcon} alt="" />
                             Import
                         </button>
-                        <button>Export</button>
+                        <button><img src={exportIcon} alt="" />Export</button>
                     </div>
                 </div>
 
@@ -150,7 +165,10 @@ export default function Content() {
                                     <td>{data.company}</td>
                                     <td>{data.orderValue}</td>
                                     <td>{data.orderDate}</td>
-                                    <td className="row_status">{data.status}</td>
+                                    <td className="row_status"><span className = {data.status === "New"?"new" : 
+                                        data.status === "In-progress"?"progress" :
+                                        data.status === "Completed"?"completed" :""
+                                    }>{data.status}</span></td>
                                     <td className="customer_edit">
                                         <i className="fa-solid fa-pen" onClick={() => handleEditClick(data)}></i>
                                     </td>
@@ -161,9 +179,17 @@ export default function Content() {
                 </div>
 
                 <div className="detailReport_footer">
-                    <div className="detailReport_result">{datas.length} results</div>
+                    <div className="detailReport_result">63 results</div>
                     <ul className="detailReport_changPage">
-                        {[1, 2, 3, 4, 5].map((num) => <li key={num}>{num}</li>)}
+                        <li>&larr;</li>
+                        <li className="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>...</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>&rarr;</li>
                     </ul>
                 </div>
             </div>

@@ -3,14 +3,14 @@
     {
       "id": "1",
       "title": "Turnover",
-      "value": 92405,
+      "value": "92,405",
       "icon": "<i class='fas fa-shopping-cart'></i>",
       "changePercent": "5.39%"
     },
     {
       "id": "2",
       "title": "Profit",
-      "value": 32218,
+      "value": "32,218",
       "icon": "<i class='fa-solid fa-dollar-sign'></i>",
       "changePercent": "5.39%"
     },
