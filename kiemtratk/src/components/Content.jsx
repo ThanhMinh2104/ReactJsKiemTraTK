@@ -1,16 +1,24 @@
 import { useState } from "react"
 import { useEffect } from "react"
-import img1 from "../imgs/data1.png"
 import { data } from "react-router-dom"
 
 export default function Content() {
     const [overviews, setOverView] = useState([])
+    const [datas, setData] = useState([])
 
     useEffect(() =>{
         fetch("http://localhost:3000/overview")
             .then(resp => resp.json())
+            .then(datas => 
+                setOverView(datas)
+            )
+    }, [])
+
+    useEffect(() =>{
+        fetch("http://localhost:3000/table")
+            .then(resp => resp.json())
             .then(data => 
-                setOverView(data)
+                setData(data)
             )
     }, [])
     
@@ -51,81 +59,33 @@ export default function Content() {
                     <table>
                         <thead>
                             <tr>
-                                <th><input type="checkbox" name="" id="" /></th>
+                                <th className="customer_check"><input type="checkbox" name="" id="" /></th>
                                 <th>CUSTOMER NAME</th>
                                 <th>COMPANY</th>
                                 <th>ORDER VALUE</th>
                                 <th>ORDER DATE</th>
-                                <th>STATUS</th>
+                                <th className="colum_status">STATUS</th>
                                 <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td><input type="checkbox" name="" id="" /></td>
-                                <td className="customer_name">
-                                    <img src={img1} className="customer_avatar" alt="" />
-                                    Elizabeth Lee
-                                </td>
-                                <td>Avatar System</td>
-                                <td>$359</td>
-                                <td>10/07/2023</td>
-                                <td>New</td>
-                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
-                            </tr>
-
-                            <tr>
-                                <td><input type="checkbox" name="" id="" /></td>
-                                <td className="customer_name">
-                                    <img src={img1} className="customer_avatar" alt="" />
-                                    Elizabeth Lee
-                                </td>
-                                <td>Avatar System</td>
-                                <td>$359</td>
-                                <td>10/07/2023</td>
-                                <td>New</td>
-                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
-                            </tr>
-                            
-                            <tr>
-                                <td><input type="checkbox" name="" id="" /></td>
-                                <td className="customer_name">
-                                    <img src={img1} className="customer_avatar" alt="" />
-                                    Elizabeth Lee
-                                </td>
-                                <td>Avatar System</td>
-                                <td>$359</td>
-                                <td>10/07/2023</td>
-                                <td>New</td>
-                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
-                            </tr>
-
-                            <tr>
-                                <td><input type="checkbox" name="" id="" /></td>
-                                <td className="customer_name">
-                                    <img src={img1} className="customer_avatar" alt="" />
-                                    Elizabeth Lee
-                                </td>
-                                <td>Avatar System</td>
-                                <td>$359</td>
-                                <td>10/07/2023</td>
-                                <td>New</td>
-                                <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
-                            </tr>
-
-                            <tr>
-                                <td><input type="checkbox" name="" id="" /></td>
-                                <td className="customer_name">
-                                    <img src={img1} className="customer_avatar" alt="" />
-                                    Elizabeth Lee
-                                </td>
-                                <td>Avatar System</td>
-                                <td>$359</td>
-                                <td>10/07/2023</td>
-                                <td>New</td>
-                                <td className="customer_edit"><i style={{display: "block"}} className="fa-solid fa-pen"></i></td>
-                            </tr>
+                            {
+                                datas.map((data) => (
+                                    <tr key={data.id}>
+                                        <td className="customer_check"><input type="checkbox" name="" id="" /></td>
+                                        <td className="customer_name">
+                                            <img src={data.img} className="customer_avatar" alt="" />
+                                            {data.name}
+                                        </td>
+                                        <td>{data.company}</td>
+                                        <td>{data.orderValue}</td>
+                                        <td>{data.orderDate}</td>
+                                        <td className="row_status">{data.status}</td>
+                                        <td className="customer_edit"><i className="fa-solid fa-pen"></i></td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
 
                     </table>

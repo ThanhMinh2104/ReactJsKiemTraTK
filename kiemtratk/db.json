@@ -26,23 +26,57 @@
     "table": [
         {
             "id": 1,
-            "name": "ReactJS",
-            "description": "Thư viện JavaScript mã nguồn mở dùng để xây dựng giao diện người dùng."
+            "name": "Elizabeth Lee",
+            "company": "AvatarSystems",
+            "orderValue": "$559",
+            "orderDate": "10/07/2023",
+            "status": "New",
+            "img": "/imgs/Avatar.png"
         },
         {
             "id": 2,
-            "name": "Node.js",
-            "description": "Môi trường chạy JavaScript bên ngoài trình duyệt."
+            "name": "Carlos Garcia",
+            "company": "SmoozeShift",
+            "orderValue": "$747",
+            "orderDate": "24/07/2023",
+            "status": "New",
+            "img": "/imgs/Avatar (1).png"
         },
         {
             "id": 3,
-            "name": "npm",
-            "description": "Trình quản lý gói cho Node.js."
+            "name": "Elizabeth Bailey",
+            "company": "Prime Time Telecome",
+            "orderValue": "$564",
+            "orderDate": "08/08/2023",
+            "status": "In-progress",
+            "img": "/imgs/Avatar (2).png"
         },
         {
             "id": 4,
-            "name": "Vite",
-            "description": "Công cụ xây dựng ứng dụng web hiện đại."
+            "name": "Ryan Brown",
+            "company": "OmniTech Corporation",
+            "orderValue": "$541",
+            "orderDate": "31/08/2023",
+            "status": "In-progress",
+            "img": "/imgs/Avatar (3).png"
+        },
+        {
+            "id": 5,
+            "name": "Ryan Young",
+            "company": "DataStream Inc.",
+            "orderValue": "$769",
+            "orderDate": "01/05/2023",
+            "status": "Completed",
+            "img": "/imgs/Avatar (4).png"
+        },
+        {
+            "id": 6,
+            "name": "Hailey Adam",
+            "company": "FlowRush",
+            "orderValue": "$922",
+            "orderDate": "10/06/2023",
+            "status": "Completed",
+            "img": "/imgs/Avatar (5).png"
         }
     ]
 }

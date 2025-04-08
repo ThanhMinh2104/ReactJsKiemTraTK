@@ -98,12 +98,26 @@
 
 .detailReport_table th:first-child, .detailReport_table td:first-child{
   text-align: center;
-  width: 120px;
+  width: 240px;
 }
+
+.detailReport_table th:last-child, .detailReport_table td:last-child {
+  text-align: center;
+}
+
+.detailReport_table th:nth-child(5), .detailReport_table td:nth-child(5){
+  width: 300px;
+}
+
+.detailReport_table th:nth-child(6){
+  text-align: center;
+  width: 500px;
+}
+
 
 .detailReport_table th + th{
   text-align: left;
-  width: 420px;
+  width: 500px;
 }
 
 .detailReport_table table {
@@ -122,6 +136,10 @@
 .customer_avatar {
   width: 40px;
   height: 40px;
+}
+
+.row_status {
+  text-align: center;
 }
 
 .customer_name {
