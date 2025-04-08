@@ -1,12 +1,38 @@
+import { useState } from "react"
+import { useEffect } from "react"
+
 export default function Content() {
+    const [overviews, setOverView] = useState([])
+
+    useEffect(() =>{
+        fetch("http://localhost:3000/overview")
+            .then(resp => resp.json())
+            .then(data => 
+                setOverView(data)
+            )
+    }, [])
+    
     return (
         <div className="content">
             <div className="overview">
                 <h1>Overview</h1>
                 <ul>
-                    <li>Item</li>
-                    <li>Item</li>
-                    <li>Item</li>
+                    {
+                        overviews.map((overview) => (
+                            <li key={overview.id} className="overview-item">
+                                <div className="overview-item_data">
+                                    <h4 className="overview_item-title">{overview.title}</h4>
+                                    <h1 className="overview_item-cost">${overview.value}</h1>
+                                    <p className="overview_item-perchange">{overview.changePercent} period of change</p>
+                                </div>
+                                <div
+                                    className="overview-item_icon"
+                                    dangerouslySetInnerHTML={{ __html: overview.icon }}
+                                ></div>
+
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 

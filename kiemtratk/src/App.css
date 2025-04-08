@@ -63,8 +63,23 @@
 } 
 
 .overview li {
-  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  width: 360px;
+  height: 140px;
+  padding: 20px;
   border: 1px solid;
+}
+
+.overview-item_data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.overview_item-perchange {
+
 }
 
 .detailReport {
@@ -111,4 +126,9 @@
 
 .sidebar-list {
   padding: 10px;
+}
+
+.overview-item_icon {
+  width: 20px;
+  height: 20px;
 }

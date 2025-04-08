@@ -1,0 +1,48 @@
+{
+    "overview": [
+        {
+            "id": 1,
+            "title": "Turnover",
+            "value": 92405,
+            "icon": "<i class='fas fa-shopping-cart'></i>",    
+            "changePercent": "5.39%"
+        },
+        {
+            "id": 2,
+            "title": "Profit",
+            "value": 32218,
+            "icon": "<i class='fa-solid fa-dollar-sign'></i>",    
+            "changePercent": "5.39%"
+        },
+        {
+            "id": 3,
+            "title": "New Customers",
+            "value": 298,
+            "icon": "<i class='fa-solid fa-user'></i>",    
+            "changePercent": "6.84%"
+        }
+    ],
+
+    "table": [
+        {
+            "id": 1,
+            "name": "ReactJS",
+            "description": "Thư viện JavaScript mã nguồn mở dùng để xây dựng giao diện người dùng."
+        },
+        {
+            "id": 2,
+            "name": "Node.js",
+            "description": "Môi trường chạy JavaScript bên ngoài trình duyệt."
+        },
+        {
+            "id": 3,
+            "name": "npm",
+            "description": "Trình quản lý gói cho Node.js."
+        },
+        {
+            "id": 4,
+            "name": "Vite",
+            "description": "Công cụ xây dựng ứng dụng web hiện đại."
+        }
+    ]
+}
